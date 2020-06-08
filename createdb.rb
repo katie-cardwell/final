@@ -5,6 +5,7 @@ DB = Sequel.connect(connection_string)                                          
 #######################################################################################
 
 # Database schema - this should reflect your domain model
+# upload with initial seed data for your Places
 DB.create_table! :events do
   primary_key :id
   String :title

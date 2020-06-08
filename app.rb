@@ -15,5 +15,7 @@ before { puts; puts "--------------- NEW REQUEST ---------------"; puts }       
 after { puts; }                                                                       #
 #######################################################################################
 
+# App program that allows consumption of the place data (i.e. at a minimum, a list of places and a detail page for each place), and an interface to allow associated data to be user-generated
+
 # events_table = DB.from(:events)
 # rsvps_table = DB.from(:rsvps)
