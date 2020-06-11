@@ -5,6 +5,10 @@
       <h6>Have an itinerary or activities that you'd like to share for <%= @destination[:title] %>? Submit your content to help our site grow!</h6>
        <form action="/events/<%= @event[:id] %>/rsvps/create" method="POST">
         <div class="form-group">
+            <label>Approximately how much did you trip cost?</label>
+            <textarea class="form-control" rows="25" name="comments"></textarea>
+        </div>
+       <div class="form-group">
             <label>How many days?</label>
             <select class="form-control" name="days">
                 <option value="2">2</option>               
@@ -22,7 +26,7 @@
             </select>
         </div>
         <div class="form-group">
-            <label>Comments</label>
+            <label>Please provide a detailed itinerary of events, including the name of venues/providers and website links if available.</label>
             <textarea class="form-control" rows="25" name="comments"></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>

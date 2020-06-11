@@ -43,8 +43,8 @@ end
 # Show a single destination
 get "/destinations/:id" do 
     @users_table = users_table
-    @destination = destinations_table.where(:id => params[:id]).to_a[0]
-    @itinerary = iteneraries_table.where(:destination_id => params["id"]).to_a
+    @destination = destinations_table.where(:id => params["id"]).to_a[0]
+    @itinerary = itineraries_table.where(:destination_id => params["id"]).to_a
     #@average = reviews_table.where(:destination_id => params["id"], :itinerary_id => params["id"]).average
     view "destination"
 end
