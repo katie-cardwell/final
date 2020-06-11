@@ -35,7 +35,6 @@ end
 get "/" do 
     # before stuff runs
     @destinations = destinations_table.all
-    @itineraries = itineraries_table.all
     puts @destinations.inspect
     view "destinations"
 end
@@ -44,8 +43,11 @@ end
 get "/destinations/:id" do 
     @users_table = users_table
     @destination = destinations_table.where(:id => params["id"]).to_a[0]
-    @itinerary = itineraries_table.where(:destination_id => params["id"]).to_a
-    #@average = reviews_table.where(:destination_id => params["id"], :itinerary_id => params["id"]).average
+    @itineraries = itineraries_table.where(:destination_id => params["id"]).to_a
+
+    @current_user = users_table.where(:id => params["id"]).to_a
+    puts @current_user.inspect
+
     view "destination"
 end
 
@@ -58,7 +60,7 @@ end
 #Receiving end of new Itinerary form
 post "/destinations/:id/itineraries/create" do 
     itineraries_table.insert(:destination_id => params["id"],
-                             :price_range => params["cost"],
+                             :cost => params["cost"],
                              :user_id => @current_user[:id],
                              :days => params["days"],
                              :type => params["type"],
@@ -76,7 +78,7 @@ end
 post "/users/create" do 
     users_table.insert(:name => params["name"],
                        :email => params["email"],
-                       :password => params["password"])
+                       :password => BCrypt::Password.create(params["password"]))
     view "create_user"
 end
 
@@ -93,7 +95,7 @@ post "/logins/create" do
     user = users_table.where(:email => email_entered).to_a[0]
     if user
         puts user.inspect
-        if user[:password] == password_entered
+        if BCrypt:Password.new(user[:password]) == password_entered
             session[:user_id] = user[:id]
             view "create_login"
         else 

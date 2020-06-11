@@ -1,10 +1,37 @@
 <div class="row">
     <div class="col-sm-9">
+        <h6><i class="fas fa-plane"></i> <%= @destination[:location] %></h6>
         <h1><%= @destination[:city] %></h1>
-        <h6><%= @destination[:location] %></h6>
         <h3><%= @destination[:description] %></h3>
     </div>
     <div lcass="col-sm-2">
         <a href="/destinations/<%= @destination[:id] %>/itineraries/new"><button type="button" class="btn btn-outline-primary">+Add Itinerary</button></a>
     </div>
+</div>
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="Col">Itinerary</th>
+                <th scope="Col">Cost</th>
+                <th scope="Col">Days</th>
+                <th scope="Col">Type</th>
+                <th scope="Col">Schedule</th>
+
+            </tr>
+        </thead>
+        <for itinerary in @itineraries %>
+            <% user = @users_table.where(:id => itinerary[:user_id]).to_a[0] %>
+            <tbody>
+                <tr>
+                    <th scope="row"><%= itinerary[:id] %></th>
+                    <td><%= itinerary[:cost] %></td>
+                    <td><%= itinerary[:days] %></td>
+                    <td><%= itinerary[:type] %></td>
+                    <td><%= itinerary[:schedule] %></td>
+                </tr>
+            </tbody>
+        <% end %>
+    </table>
 </div>

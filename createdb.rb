@@ -17,7 +17,7 @@ DB.create_table! :itineraries do
   foreign_key :destination_id
   foreign_key :user_id
   String :cost
-  Number :days
+  String :days
   String :type
   String :schedule, text: true
 end
@@ -44,9 +44,3 @@ destinations_table.insert(city: "Tulum",
                     description: "Year-round warm weather and beautiful beaches are a trademark of Tulum.  In addition to the sea, you have ancient ruins and other historical sites to explore.",
                     location: "Tulum, Mexico") 
 
-itineraries_table = DB.from (:itineraries)
-
-itineraries_table.insert(cost: "$$",
-                         days: "2",
-                         type: "Family",
-                         schedule: "TBD")

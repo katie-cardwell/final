@@ -1,5 +1,5 @@
 
-<h2>Have an itinerary or activities that you'd like to share for <%= @destination[:city] %>? Submit your content to help our site grow!</h2>
+<h2>Have an itinerary or activities that you would like to share for <%= @destination[:city] %>? Submit your content to help our site grow!</h2>
   <hr class="my-4">
     <div class= "feedback">
     <div class ="container">
@@ -7,7 +7,7 @@
        <form action="/destinations/<%= @destination[:id] %>/itineraries/create" method="POST">
         <div class="form-group">
             <label>Approximately how much did this trip cost?</label>
-            <textarea class="form-control" rows="1" name="comments"></textarea>
+            <textarea class="form-control" rows="1" name="cost"></textarea>
         </div>
        <div class="form-group">
             <label>How many days is your itinerary for?</label>
@@ -28,7 +28,7 @@
         </div>
         <div class="form-group">
             <label>Please provide a detailed itinerary of events, including the name of venues/providers and website links if available.</label>
-            <textarea class="form-control" rows="25" name="comments"></textarea>
+            <textarea class="form-control" rows="25" name="schedule"></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
        </form>
