@@ -61,7 +61,7 @@ post "/destinations/:id/itineraries/create" do
                              :price_range => params["cost"],
                              :user_id => @current_user[:id],
                              :days => params["days"],
-                             :type => params["type"]
+                             :type => params["type"],
                              :schedule => params["schedule"])
     @destination = destinations_table.where(:id => params["id"]).to_a[0]
     view "create_itinerary"

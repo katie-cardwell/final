@@ -8,19 +8,18 @@ DB = Sequel.connect(connection_string)                                          
 # upload with initial seed data for your Places
 DB.create_table! :destinations do
   primary_key :id
-  String :title
+  String :city
+  String :state, country
   String :description, text: true
-  String :location
 end
 DB.create_table! :itineraries do
   primary_key :id
   foreign_key :destination_id
   foreign_key :user_id
+  String :email
   String :cost
   Number :days
   String :type
-  String :name
-  String :email
   String :schedule, text: true
 end
 DB.create_table! :users do
