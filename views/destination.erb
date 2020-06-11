@@ -4,13 +4,7 @@
         <h6><%= @destination[:location] %></h6>
         <h3><%= @destination[:description] %></h3>
     </div>
-    <div class="col-sm-3">
-        <table class="table table-borderless">
-            <thead>
-                <tr>
-                    <th scope="col">Type</th>
-                </tr>
-            </thead>
-        </table>
+    <div lcass="col-sm-2">
+        <a href="/destinations/<%= @destination[:id] %>/itineraries/new"><button type="button" class="btn btn-outline-primary">+Add Itinerary</button></a>
     </div>
 </div>
