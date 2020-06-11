@@ -1,0 +1,31 @@
+  <hr class="my-4">
+
+  <div class= "feedback">
+    <div class ="container">
+      <h6>Have an itinerary or activities that you'd like to share for <%= @destination[:title] %>? Submit your content to help our site grow!</h6>
+       <form action="/events/<%= @event[:id] %>/rsvps/create" method="POST">
+        <div class="form-group">
+            <label>How many days?</label>
+            <select class="form-control" name="days">
+                <option value="2">2</option>               
+                <option value="1">3</option>
+                <option value="0">4</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>What type of Trip is this?</label>
+            <select class="form-control" name="type">
+                <option value="3">Other</option>
+                <option value="2">Friends</option>
+                <option value="1">Romantic</option>
+                <option value="0">Family</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Comments</label>
+            <textarea class="form-control" rows="25" name="comments"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+       </form>
+    </div>
+  </div>

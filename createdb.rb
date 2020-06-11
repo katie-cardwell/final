@@ -16,7 +16,9 @@ DB.create_table! :itineraries do
   primary_key :id
   foreign_key :destination_id
   foreign_key :user_id
-  String :days
+  String :cost
+  Number :days
+  String :type
   String :name
   String :email
   String :schedule, text: true
@@ -39,3 +41,7 @@ destinations_table.insert(title: "Chicago",
 destinations_table.insert(title: "Montreal", 
                     description: "If you're looking for a European city, but can't go that far, Montreal is for you.  French-inspired Montreal is a beautiful city with countless activities to fill your weekend.",
                     location: "Quebec, Canada")
+
+destinations_table.insert(title: "Tulum", 
+                    description: "Year-round warm weather and beautiful beaches are a trademark of Tulum.  In addition to the sea, you have ancient ruins and other historical sites to explore.",
+                    location: "Tulum, Mexico")                  

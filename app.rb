@@ -58,8 +58,10 @@ end
 #Receiving end of new Itinerary form
 post "/destinations/:id/itineraries/create" do 
     itineraries_table.insert(:destination_id => params["id"],
-                             :days => params["days"],
+                             :price_range => params["cost"],
                              :user_id => @current_user[:id],
+                             :days => params["days"],
+                             :type => params["type"]
                              :schedule => params["schedule"])
     @destination = destinations_table.where(:id => params["id"]).to_a[0]
     view "create_itinerary"
